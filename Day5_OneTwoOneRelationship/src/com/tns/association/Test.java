@@ -1,10 +1,11 @@
-package com.tns.inheritance;
+package com.tns.association;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class InheritanceTest {
+
+public class Test {
 
 	public static void main(String[] args) {
 		EntityManagerFactory factory=Persistence.createEntityManagerFactory("JPA-PU");
@@ -13,19 +14,20 @@ public class InheritanceTest {
 		
 		//create as employee1
 		Employee emp=new Employee();
-		emp.setName("Jayu");
-		emp.setSalary(35000);
+		emp.setName("Komal");
+		emp.setId(1);
+		emp.setAddress("Shahada");
 		em.persist(emp);
 		
-		/*Employee emp1=new Employee();
-		emp1.setName("Komal");
-		emp1.setSalary(45000);
-		em.persist(emp1);
 		
-		Manager mg=new Manager();
-		mg.setName("sonam");
-		mg.setSalary(35000);
-		mg.setDeptName("Information Technology");
+		
+		/*Address mg=new Address();
+		mg.setAddressId(1);
+		mg.setCity("Shahada");
+		mg.setZipcode(425409);
+		mg.setStreet("Computer Lines");
+		mg.setState("Maharashtra");
+		emp.setAddress(mg);
 		em.persist(mg);*/
 		
 		em.getTransaction().commit();
@@ -33,4 +35,7 @@ public class InheritanceTest {
 		em.close();
 		factory.close();
 	}
+
+	
+
 }
